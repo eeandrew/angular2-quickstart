@@ -11,7 +11,7 @@ System.register(['angular2/core'], function(exports_1, context_1) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1;
-    var Hero, AppComponent;
+    var Hero, AppComponent, HEROS;
     return {
         setters:[
             function (core_1_1) {
@@ -31,11 +31,12 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                         id: 1,
                         name: 'windstorm'
                     };
+                    this.heroes = HEROS;
                 }
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: "<h1>{{title}}</h1>\n\t\t\t\t<h2>{{hero.name}} Detail</h2>\n\t\t\t\t<div><label>id: </label>{{hero.id}}</div>\n\t\t\t\t<div>\n\t\t\t\t\t<label>name: </label>\n\t\t\t\t\t<input [(ngModel)]=\"hero.name\" placeholder=\"name\"/>\n\t\t\t\t</div>"
+                        template: "<h1>{{title}}</h1>\n\t\t\t\t<ul>\n\t\t\t\t\t<li *ngFor=\"#hero of heroes\">\n\t\t\t\t\t  <span class=\"badge\">{{hero.id}}</span> {{hero.name}}\n\t\t\t\t\t</li>\n\t\t\t\t</ul>\n\t\t\t\t<h2>{{hero.name}} Detail</h2>\n\t\t\t\t<div><label>id: </label>{{hero.id}}</div>\n\t\t\t\t<div>\n\t\t\t\t\t<label>name: </label>\n\t\t\t\t\t<input [(ngModel)]=\"hero.name\" placeholder=\"name\"/>\n\t\t\t\t</div>"
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);
@@ -43,6 +44,15 @@ System.register(['angular2/core'], function(exports_1, context_1) {
             }());
             exports_1("AppComponent", AppComponent);
             ;
+            HEROS = [
+                {
+                    id: '11', name: 'Mr Nice1'
+                }, {
+                    id: '12', name: 'Mr Nice2'
+                }, {
+                    id: '13', name: 'Mr Nice3'
+                }
+            ];
         }
     }
 });
